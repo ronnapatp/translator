@@ -74,15 +74,12 @@ def switchSide():
 def onDownloadSelect(event):
     selectedValue = fileTypeDownload.get()
     selectedFunction = fileTypeToFunction.get(selectedValue)
-    if not inputText.get("1.0", "end-1c") or outputText.get("1.0", "end-1c"):
-        errorMessage("No input and output found")
+    if selectedFunction == "TXT":
+        downloadTXT(sourceLang.get(), inputText.get("1.0", "end-1c"), destinationLang.get(), outputText.get("1.0", "end-1c"))
+    elif selectedFunction == "CVS": 
+        downloadCVS(sourceLang.get(), inputText.get("1.0", "end-1c"), destinationLang.get(), outputText.get("1.0", "end-1c"))
     else:
-        if selectedFunction == "TXT":
-            downloadTXT(sourceLang.get(), inputText.get("1.0", "end-1c"), destinationLang.get(), outputText.get("1.0", "end-1c"))
-        elif selectedFunction == "CVS": 
-            downloadCVS(sourceLang.get(), inputText.get("1.0", "end-1c"), destinationLang.get(), outputText.get("1.0", "end-1c"))
-        else:
-            errorMessage("Please Select Valid File Type")
+        errorMessage("Please Select Valid File Type")
 
 languagesListBF = list(LANGUAGES.values())
 languagesList = []
