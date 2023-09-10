@@ -7,6 +7,7 @@ import io
 import cairosvg
 from textToSpeech import textSpeech
 from download import fileType, fileTypeToFunction, downloadCVS, downloadTXT
+import pyperclip
 
 translator = Translator()
 
@@ -40,6 +41,15 @@ def text_to_speech(textType):
         textSpeech(text, list(LANGUAGES)[languageIndex])
     except Exception as error:
         errorMessage(error)
+
+def clipboard(textType):
+    text = outputText.get("1.0", "end-1c") if textType == "translated" else inputText.get("1.0", "end-1c")
+    try:
+        pyperclip.copy(text)
+        errorMessage("Copied!")
+    except Exception as error:
+        errorMessage(error)
+
 
 def clearText():
     outputText.config(state="normal")
@@ -128,10 +138,10 @@ clipboardPNG = cairosvg.svg2png(bytestring=clipboardSVG.encode(), output_width=b
 clipboardIcon = Image.open(io.BytesIO(clipboardPNG))
 
 copyIcon = ImageTk.PhotoImage(clipboardIcon)
-copyButtonDestination = tk.Button(main_frame, text="", image=copyIcon, compound=tk.LEFT, command=lambda: text_to_speech("translated"), width=40, height=40)
+copyButtonDestination = tk.Button(main_frame, text="", image=copyIcon, compound=tk.LEFT, command=lambda: clipboard("translated"), width=40, height=40)
 copyButtonDestination.grid(row=3, column=2, padx=10, pady=10)
 
-copyButtonOriginal = tk.Button(main_frame, text="", image=copyIcon, compound=tk.LEFT, command=lambda: text_to_speech("original"), width=40, height=40)
+copyButtonOriginal = tk.Button(main_frame, text="", image=copyIcon, compound=tk.LEFT, command=lambda: clipboard("original"), width=40, height=40)
 copyButtonOriginal.grid(row=3, column=0, padx=10, pady=10)
 
 fileTypeDownload = tk.StringVar()
