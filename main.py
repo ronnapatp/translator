@@ -146,7 +146,7 @@ copyButtonOriginal.grid(row=3, column=0, padx=10, pady=10)
 
 fileTypeDownload = tk.StringVar()
 
-downloadCombobox = ttk.Combobox(main_frame, textvariable=fileTypeDownload, values=fileType)
+downloadCombobox = ttk.Combobox(main_frame, textvariable=fileTypeDownload, values=fileType, state="readonly")
 downloadCombobox.grid(row=3, column=1, padx=10, pady=10, sticky="nsew")
 
 downloadCombobox.set("Click to download")
