@@ -76,7 +76,7 @@ def onDownloadSelect(event):
     selectedFunction = fileTypeToFunction.get(selectedValue)
     if selectedFunction == "TXT":
         downloadTXT(sourceLang.get(), inputText.get("1.0", "end-1c"), destinationLang.get(), outputText.get("1.0", "end-1c"))
-    elif selectedFunction == "CVS": 
+    elif selectedFunction == "CSV": 
         downloadCVS(sourceLang.get(), inputText.get("1.0", "end-1c"), destinationLang.get(), outputText.get("1.0", "end-1c"))
     else:
         errorMessage("Please Select Valid File Type")
