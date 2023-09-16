@@ -5,9 +5,8 @@ import csv
 fileType = ['Download as TXT', 'Download as CSV']
 
 currentDatetime = datetime.datetime.now()
-
 downloadTime = f"{currentDatetime.time().hour}.{currentDatetime.time().minute}.{currentDatetime.time().second} ({currentDatetime.day}/{currentDatetime.month}/{currentDatetime.year})"
-print(downloadTime)
+
 def downloadTXT(originalLang, originalText, destinationLang, translatedText):
     file_path = asksaveasfilename(defaultextension=".txt", filetypes=[("Text Files", "*.txt")], initialfile=f"Translation ({originalLang}-{destinationLang})")
 
