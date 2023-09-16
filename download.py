@@ -20,7 +20,7 @@ def downloadTXT(originalLang, originalText, destinationLang, translatedText):
         except Exception as e:
             print(f"Error saving file: {str(e)}")
 
-def downloadCVS(originalLang, originalText, destinationLang, translatedText):
+def downloadCSV(originalLang, originalText, destinationLang, translatedText):
     data = [
         [originalLang, destinationLang],
         [originalText, translatedText],

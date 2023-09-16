@@ -6,7 +6,7 @@ from tkinter import messagebox
 import io
 import cairosvg
 from textToSpeech import textSpeech
-from download import fileType, fileTypeToFunction, downloadCVS, downloadTXT
+from download import fileType, fileTypeToFunction, downloadCSV, downloadTXT
 import pyperclip
 
 translator = Translator()
@@ -77,7 +77,7 @@ def onDownloadSelect(event):
     if selectedFunction == "TXT":
         downloadTXT(sourceLang.get(), inputText.get("1.0", "end-1c"), destinationLang.get(), outputText.get("1.0", "end-1c"))
     elif selectedFunction == "CSV": 
-        downloadCVS(sourceLang.get(), inputText.get("1.0", "end-1c"), destinationLang.get(), outputText.get("1.0", "end-1c"))
+        downloadCSV(sourceLang.get(), inputText.get("1.0", "end-1c"), destinationLang.get(), outputText.get("1.0", "end-1c"))
     else:
         errorMessage("Please Select Valid File Type")
 
