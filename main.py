@@ -85,9 +85,20 @@ languagesList = []
 for item in languagesListBF:
     languagesList.append(item.capitalize())
 
+def centerWindow(root):
+    screenWidth = root.winfo_screenwidth()
+    screenHeight = root.winfo_screenheight()
+
+    x = (screenWidth - root.winfo_reqwidth()) // 3
+    y = (screenHeight - root.winfo_reqheight()) // 3
+
+    root.geometry(f"+{x}+{y}")
+
+
 root = tk.Tk()
 root.title("Translator")
 root.iconbitmap("./image/icon.png")
+centerWindow(root)
 
 
 main_frame = tk.Frame(root)
