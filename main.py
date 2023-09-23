@@ -89,6 +89,7 @@ root = tk.Tk()
 root.title("Translator")
 root.iconbitmap("./image/icon.png")
 
+
 main_frame = tk.Frame(root)
 main_frame.grid(row=0, column=0, padx=10, pady=10, sticky="nsew")
 
@@ -145,5 +146,5 @@ downloadCombobox.set("Click to download")
 downloadCombobox.bind("<<ComboboxSelected>>", onDownloadSelect)
 
 root.bind("<Configure>", on_resize)
-
+root.resizable(False, False)
 root.mainloop()
